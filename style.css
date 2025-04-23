@@ -219,7 +219,7 @@ header {
 
   body {
     overflow: hidden;
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: auto;
   }
 
   header {
@@ -231,8 +231,8 @@ header {
   }
 
   .spinner-container {
-    width: 110px; /* 50% smaller */
-    height: 110px;
+    width: 55px;
+    height: 55px;
   }
 
   .order-btn {
@@ -241,8 +241,8 @@ header {
   }
 
   .sandwich-switcher {
-    width: 300px; /* 50% smaller */
-    height: 300px;
+    width: 150px;
+    height: 150px;
   }
 }
 
