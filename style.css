@@ -17,6 +17,7 @@ body, html {
   height: 100vh;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .logo {
@@ -25,6 +26,37 @@ body, html {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.sticker {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+.cassette {
+  top: 20%;
+  right: 10%;
+  transform: rotate(15deg);
+  animation-delay: 0.5s;
+}
+
+.eighties {
+  bottom: 30%;
+  left: 5%;
+  transform: rotate(-10deg);
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--rotation, 0deg));
+  }
+  50% {
+    transform: translateY(-15px) rotate(var(--rotation, 0deg));
+  }
 }
 
 .order-btn {
@@ -40,6 +72,7 @@ body, html {
   font-weight: bold;
   border-radius: 12px;
   transition: background-color 0.3s;
+  z-index: 3;
 }
 
 .order-btn:hover {
@@ -60,5 +93,19 @@ body, html {
   .order-btn {
     font-size: 1.2rem;
     padding: 12px 30px;
+  }
+
+  .sticker {
+    width: 80px;
+  }
+
+  .cassette {
+    top: 15%;
+    right: 5%;
+  }
+
+  .eighties {
+    bottom: 25%;
+    left: 2%;
   }
 }
