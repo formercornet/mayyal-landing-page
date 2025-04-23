@@ -50,6 +50,37 @@ body, html {
   animation-delay: 1s;
 }
 
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.rotary-spinner {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: smoothRotate 4s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+@keyframes smoothRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0) rotate(var(--rotation, 0deg));
@@ -107,5 +138,10 @@ body, html {
   .eighties {
     bottom: 25%;
     left: 2%;
+  }
+
+  .spinner-container {
+    width: 120px;
+    height: 120px;
   }
 }
