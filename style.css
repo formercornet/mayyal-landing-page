@@ -48,10 +48,7 @@ body, html {
   height: 100%;
   font-family: sans-serif;
   background-color: #16151D;
-  overscroll-behavior-y: contain; /* allows natural iOS scrolling but prevents regular page scroll */
-  position: fixed; /* prevents regular page scrolling */
-  width: 100%;
-  overflow-y: auto; /* allows pull-to-refresh and notch scrolling */
+  overscroll-behavior: contain; /* prevents bounce effect */
 }
 
 .hero {
@@ -97,8 +94,8 @@ header {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 576px; /* reduced from 720px by 20% */
-  height: 576px; /* reduced from 720px by 20% */
+  width: 720px;
+  height: 720px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,8 +119,8 @@ header {
 
 /* Make kofta bigger and adjust position */
 .sandwich:nth-child(2) {
-  width: 120%; /* reduced from 140% by 20% */
-  height: 120%; /* reduced from 140% by 20% */
+  width: 140%;
+  height: 140%;
   left: -20%;
   top: -25%;
 }
@@ -216,6 +213,13 @@ header {
 @media (max-width: 768px) {
   .hero {
     background-position: 25% center; /* Focus on left 1/3 of image */
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  body {
+    overflow: hidden;
+    overscroll-behavior-y: contain;
   }
 
   header {
@@ -227,8 +231,8 @@ header {
   }
 
   .spinner-container {
-    width: 220px;
-    height: 220px;
+    width: 110px; /* 50% smaller */
+    height: 110px;
   }
 
   .order-btn {
@@ -237,19 +241,8 @@ header {
   }
 
   .sandwich-switcher {
-    width: 480px; /* reduced from 600px by 20% */
-    height: 480px; /* reduced from 600px by 20% */
-  }
-
-  #flash-overlay {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  #flash-overlay img {
-    width: 250px;
-    margin: 0 auto;
+    width: 300px; /* 50% smaller */
+    height: 300px;
   }
 }
 
@@ -419,8 +412,8 @@ header {
   }
 
   .sandwich-switcher {
-    width: 480px; /* reduced from 600px by 20% */
-    height: 480px; /* reduced from 600px by 20% */
+    width: 600px;
+    height: 600px;
   }
 
   .cta-button {
