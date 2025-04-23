@@ -45,8 +45,10 @@ body, html {
   background-color: #cc2a1e;
 }
 
-html {
+html, body {
+  height: 100%;
+  font-family: sans-serif;
   background-color: #16151D;
-  overscroll-behavior: none;
-  color-scheme: dark;
+  overscroll-behavior: auto;
 }
+
