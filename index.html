@@ -12,6 +12,9 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div id="flash-overlay">
+    <img src="assets/eighties.png" alt="Eighties Flash" />
+  </div>
   <div class="hero">
     <header>
       <img src="assets/logo.png" alt="Mayyal Logo" class="logo" />
@@ -32,5 +35,16 @@
       Order Now
     </a>
   </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const flashOverlay = document.getElementById('flash-overlay');
+      flashOverlay.style.opacity = '1';
+      
+      // Remove the overlay after animation completes
+      setTimeout(() => {
+        flashOverlay.remove();
+      }, 2000);
+    });
+  </script>
 </body>
 </html>
