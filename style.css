@@ -44,3 +44,9 @@ body, html {
 .order-btn:hover {
   background-color: #cc2a1e;
 }
+
+html {
+  background-color: #16151D;
+  overscroll-behavior: none;
+  color-scheme: dark;
+}
