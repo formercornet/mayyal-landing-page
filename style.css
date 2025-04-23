@@ -48,7 +48,7 @@ body, html {
   height: 100%;
   font-family: sans-serif;
   background-color: #16151D;
-  overscroll-behavior: contain; /* prevents bounce effect */
+  overscroll-behavior: auto; /* allows out of bounds scrolling */
   position: fixed;
   width: 100%;
 }
@@ -231,8 +231,8 @@ header {
   }
 
   .spinner-container {
-    width: 55px;
-    height: 55px;
+    width: 27px; /* 50% smaller */
+    height: 27px;
   }
 
   .order-btn {
@@ -241,8 +241,8 @@ header {
   }
 
   .sandwich-switcher {
-    width: 150px;
-    height: 150px;
+    width: 75px; /* 50% smaller */
+    height: 75px;
   }
 }
 
