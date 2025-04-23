@@ -214,11 +214,9 @@ header {
   .hero {
     background-position: 25% center; /* Focus on left 1/3 of image */
     height: 100vh;
-    overflow: hidden;
   }
 
   body {
-    overflow: hidden;
     overscroll-behavior-y: auto;
   }
 
