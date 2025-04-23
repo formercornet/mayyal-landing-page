@@ -20,12 +20,34 @@ body, html {
   overflow: hidden;
 }
 
+header {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px;
+}
+
 .logo {
   width: 300px;
-  padding: 30px;
-  position: absolute;
-  top: 0;
-  left: 0;
+}
+
+.spinner-container {
+  width: 300px;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotary-spinner {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  animation: smoothRotate 8s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
 }
 
 .sticker {
@@ -50,35 +72,17 @@ body, html {
   animation-delay: 1s;
 }
 
-.spinner-container {
+.sandwich-switcher {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
-  height: 300px;
+  width: 360px;
+  height: 360px;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 2;
-}
-
-.rotary-spinner {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  animation: smoothRotate 8s linear infinite;
-  transform-origin: center center;
-  will-change: transform;
-}
-
-.sandwich-switcher {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .sandwich {
@@ -88,7 +92,7 @@ body, html {
   object-fit: contain;
   opacity: 0;
   transform: scale(0.8);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .sandwich.active {
@@ -96,9 +100,9 @@ body, html {
   transform: scale(1);
 }
 
-.sandwich:nth-child(1) { animation: switchSandwich 6s infinite; }
-.sandwich:nth-child(2) { animation: switchSandwich 6s infinite 2s; }
-.sandwich:nth-child(3) { animation: switchSandwich 6s infinite 4s; }
+.sandwich:nth-child(1) { animation: switchSandwich 2s infinite; }
+.sandwich:nth-child(2) { animation: switchSandwich 2s infinite 0.666s; }
+.sandwich:nth-child(3) { animation: switchSandwich 2s infinite 1.333s; }
 
 @keyframes switchSandwich {
   0%, 33% {
@@ -173,9 +177,17 @@ body, html {
     background-position: 25% center; /* Focus on left 1/3 of image */
   }
 
+  header {
+    padding: 20px;
+  }
+
   .logo {
     width: 220px;
-    padding: 20px;
+  }
+
+  .spinner-container {
+    width: 220px;
+    height: 220px;
   }
 
   .order-btn {
@@ -197,13 +209,8 @@ body, html {
     left: 2%;
   }
 
-  .spinner-container {
-    width: 250px;
-    height: 250px;
-  }
-
   .sandwich-switcher {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
   }
 }
