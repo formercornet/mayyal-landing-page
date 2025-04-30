@@ -81,36 +81,33 @@
     window.addEventListener('load', () => {
       const loadingScreen = document.getElementById('loading-screen');
       const mainContent = document.getElementById('main-content');
-      const hero = document.querySelector('.hero');
+      
+      // Show loading screen
+      loadingScreen.style.opacity = '1';
       
       // Preload all images
       preloadImages(imagesToPreload)
         .then(() => {
           // All images loaded successfully
           setTimeout(() => {
-            // Start zoom out animation
-            loadingScreen.classList.add('zoom-out');
+            // Fade out loading screen
+            loadingScreen.style.opacity = '0';
             
-            // Show main content after zoom out animation
+            // Show main content after a short delay
             setTimeout(() => {
               loadingScreen.style.display = 'none';
               mainContent.style.display = 'block';
               mainContent.classList.add('visible');
-              hero.classList.add('visible');
-            }, 1000); // Wait for zoom out animation to complete
+            }, 1000);
           }, 2000); // Keep the "eighties" screen for 2 seconds
         })
         .catch(error => {
           console.error('Error loading images:', error);
           // Even if there's an error, show the content after a delay
           setTimeout(() => {
-            loadingScreen.classList.add('zoom-out');
-            setTimeout(() => {
-              loadingScreen.style.display = 'none';
-              mainContent.style.display = 'block';
-              mainContent.classList.add('visible');
-              hero.classList.add('visible');
-            }, 1000);
+            loadingScreen.style.display = 'none';
+            mainContent.style.display = 'block';
+            mainContent.classList.add('visible');
           }, 2000);
         });
     });
