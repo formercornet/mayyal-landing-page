@@ -131,7 +131,7 @@
       preloadImages(imagesToPreload)
         .then(() => {
           const loadTime = Date.now() - startTime;
-          const minDisplayTime = 800; // Minimum display time in ms
+          const minDisplayTime = 900; // Minimum display time in ms (800 + 100)
           const remainingTime = Math.max(0, minDisplayTime - loadTime);
           
           // Wait for either the minimum display time or actual load time, whichever is longer

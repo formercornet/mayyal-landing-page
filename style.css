@@ -450,14 +450,14 @@ header {
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 50%;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.35);
   transform: scale(1.1);
 }
 
@@ -476,6 +476,11 @@ header {
   .social-icon {
     width: 40px;
     height: 40px;
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .social-icon:hover {
+    background: rgba(255, 255, 255, 0.35);
   }
 
   .social-icon img {
