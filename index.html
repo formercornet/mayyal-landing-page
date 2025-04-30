@@ -121,6 +121,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const loadingScreen = document.getElementById('loading-screen');
       const mainContent = document.getElementById('main-content');
+      const startTime = Date.now();
       
       // Show loading screen
       loadingScreen.style.opacity = '1';
@@ -129,7 +130,11 @@
       // Preload all images
       preloadImages(imagesToPreload)
         .then(() => {
-          // All images loaded successfully
+          const loadTime = Date.now() - startTime;
+          const minDisplayTime = 800; // Minimum display time in ms
+          const remainingTime = Math.max(0, minDisplayTime - loadTime);
+          
+          // Wait for either the minimum display time or actual load time, whichever is longer
           setTimeout(() => {
             // Fade out loading screen
             loadingScreen.style.opacity = '0';
@@ -138,16 +143,16 @@
             setTimeout(() => {
               loadingScreen.style.display = 'none';
               mainContent.style.opacity = '1';
-            }, 1000);
-          }, 2000);
+            }, 300); // Shorter fade transition
+          }, remainingTime);
         })
         .catch(error => {
           console.error('Error loading images:', error);
-          // Even if there's an error, show the content after a delay
+          // Even if there's an error, show the content after a shorter delay
           setTimeout(() => {
             loadingScreen.style.display = 'none';
             mainContent.style.opacity = '1';
-          }, 2000);
+          }, 800);
         });
     });
   </script>
