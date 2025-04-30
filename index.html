@@ -9,45 +9,110 @@
   <meta name="apple-mobile-web-app-title" content="Mayyal Mayyal" />
   <meta name="description" content="Mayyal Mayyal - Fast Food" />
   <title>Mayyal Mayyal</title>
+  
+  <!-- Preload critical assets -->
+  <link rel="preload" href="assets/bg.jpg" as="image">
+  <link rel="preload" href="assets/logo.png" as="image">
+  <link rel="preload" href="assets/hawawshi.png" as="image">
+  <link rel="preload" href="assets/kofta.png" as="image">
+  <link rel="preload" href="assets/tawouk.png" as="image">
+  <link rel="preload" href="assets/ig_black.svg" as="image">
+  <link rel="preload" href="assets/loc.png" as="image">
+  <link rel="preload" href="style.css" as="style">
+  
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="flash-overlay">
+  <div id="loading-screen">
     <img src="assets/eighties.png" alt="Eighties Flash" />
   </div>
-  <div class="hero">
-    <header>
-      <img src="assets/logo.png" alt="Mayyal Logo" class="logo" />
-    </header>
+  
+  <div id="main-content" style="display: none;">
+    <div class="hero">
+      <header>
+        <img src="assets/logo.png" alt="Mayyal Logo" class="logo" />
+      </header>
 
-    <div class="sandwich-switcher">
-      <img src="assets/hawawshi.png" alt="Hawawshi" class="sandwich active" />
-      <img src="assets/kofta.png" alt="Kofta" class="sandwich" />
-      <img src="assets/tawouk.png" alt="Tawouk" class="sandwich" />
-    </div>
+      <div class="sandwich-switcher">
+        <img src="assets/hawawshi.png" alt="Hawawshi" class="sandwich active" />
+        <img src="assets/kofta.png" alt="Kofta" class="sandwich" />
+        <img src="assets/tawouk.png" alt="Tawouk" class="sandwich" />
+      </div>
 
-    <div class="social-bar">
-      <a href="https://www.instagram.com/mayyal.eg" target="_blank" class="social-icon">
-        <img src="assets/ig_black.svg" alt="Instagram" />
+      <div class="social-bar">
+        <a href="https://www.instagram.com/mayyal.eg" target="_blank" class="social-icon">
+          <img src="assets/ig_black.svg" alt="Instagram" />
+        </a>
+        <a href="https://maps.app.goo.gl/HSQ31WB5SM9rLsvi7" target="_blank" class="social-icon">
+          <img src="assets/loc.png" alt="Location" />
+        </a>
+      </div>
+
+      <a href="https://www.mayyalmayyal.com/table?franchise=B01&isFranchiseSelected=true" class="cta-button">
+        ORDER NOW
       </a>
-      <a href="https://maps.app.goo.gl/HSQ31WB5SM9rLsvi7" target="_blank" class="social-icon">
-        <img src="assets/loc.png" alt="Location" />
-      </a>
     </div>
-
-    <a href="https://www.mayyalmayyal.com/table?franchise=B01&isFranchiseSelected=true" class="cta-button">
-      ORDER NOW
-    </a>
   </div>
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const flashOverlay = document.getElementById('flash-overlay');
-      flashOverlay.style.opacity = '1';
+    // Function to preload images
+    function preloadImages(images) {
+      return Promise.all(images.map(img => {
+        return new Promise((resolve, reject) => {
+          const image = new Image();
+          image.onload = resolve;
+          image.onerror = reject;
+          image.src = img;
+        });
+      }));
+    }
+
+    // List of all images to preload
+    const imagesToPreload = [
+      'assets/bg.jpg',
+      'assets/logo.png',
+      'assets/hawawshi.png',
+      'assets/kofta.png',
+      'assets/tawouk.png',
+      'assets/ig_black.svg',
+      'assets/loc.png'
+    ];
+
+    // Wait for all resources to load
+    window.addEventListener('load', () => {
+      const loadingScreen = document.getElementById('loading-screen');
+      const mainContent = document.getElementById('main-content');
+      const hero = document.querySelector('.hero');
       
-      // Remove the overlay after animation completes
-      setTimeout(() => {
-        flashOverlay.remove();
-      }, 2000);
+      // Preload all images
+      preloadImages(imagesToPreload)
+        .then(() => {
+          // All images loaded successfully
+          setTimeout(() => {
+            // Start zoom out animation
+            loadingScreen.classList.add('zoom-out');
+            
+            // Show main content after zoom out animation
+            setTimeout(() => {
+              loadingScreen.style.display = 'none';
+              mainContent.style.display = 'block';
+              mainContent.classList.add('visible');
+              hero.classList.add('visible');
+            }, 1000); // Wait for zoom out animation to complete
+          }, 2000); // Keep the "eighties" screen for 2 seconds
+        })
+        .catch(error => {
+          console.error('Error loading images:', error);
+          // Even if there's an error, show the content after a delay
+          setTimeout(() => {
+            loadingScreen.classList.add('zoom-out');
+            setTimeout(() => {
+              loadingScreen.style.display = 'none';
+              mainContent.style.display = 'block';
+              mainContent.classList.add('visible');
+              hero.classList.add('visible');
+            }, 1000);
+          }, 2000);
+        });
     });
   </script>
 </body>
