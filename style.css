@@ -338,6 +338,7 @@ header {
 /* More subtle CTA Button */
 .cta-button {
   position: absolute;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -345,15 +346,18 @@ header {
   display: block;
   text-decoration: none;
   width: auto;
-  bottom: 14%;
+  box-sizing: border-box;
+  margin-top: 40px;
 }
 
 .cta-button img {
-  width: 220px;
+  width: 100%;
+  max-width: 220px;
   height: auto;
   display: block;
   object-fit: contain;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .cta-button:active {
@@ -361,15 +365,27 @@ header {
 }
 
 @media (max-width: 768px) {
+  .cta-button {
+    bottom: 12%;
+  }
+  .cta-button img {
+    max-width: 160px;
+  }
   .social-bar {
     bottom: 25%;
     gap: 20px;
   }
-  .cta-button {
-    bottom: 10%;
+  .social-icon {
+    width: 40px;
+    height: 40px;
   }
-  .cta-button img {
-    width: 110px;
+  .social-icon img {
+    width: 20px;
+    height: 20px;
+  }
+  .social-icon:last-child img {
+    width: 24px;
+    height: 24px;
   }
 }
 
@@ -456,6 +472,7 @@ header {
   display: flex;
   gap: 30px;
   z-index: 3;
+  box-sizing: border-box;
 }
 
 .social-icon {
@@ -468,6 +485,7 @@ header {
   border-radius: 50%;
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
 .social-icon:hover {
@@ -479,6 +497,7 @@ header {
   width: 24px;
   height: 24px;
   object-fit: contain;
+  box-sizing: border-box;
 }
 
 /* Make location icon slightly bigger */
