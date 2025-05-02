@@ -10,6 +10,7 @@ const urlsToCache = [
   '/assets/tawouk.webp',
   '/assets/ig_black.webp',
   '/assets/loc.webp',
+  '/assets/order_now.webp',
   '/assets/eighties.webp'
 ];
 

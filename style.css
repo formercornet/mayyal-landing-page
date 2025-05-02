@@ -341,22 +341,33 @@ header {
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 20px 50px;
-  background-color: #EE3124;
-  color: #F7FCFE;
-  text-decoration: none;
-  font-size: 1.8rem;
-  font-weight: bold;
-  border-radius: 12px;
-  transition: all 0.3s ease;
   z-index: 3;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  box-shadow: 0 4px 15px rgba(238, 49, 36, 0.3);
+  transition: all 0.3s ease;
+  display: block;
+  text-decoration: none;
+  width: auto;
+}
+
+.cta-button img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin: 0 auto;
 }
 
 .cta-button:active {
   transform: translateX(-50%) scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .cta-button {
+    bottom: 12%;
+  }
+  .cta-button img {
+    max-width: 160px;
+  }
 }
 
 /* Remove pulse animation */
