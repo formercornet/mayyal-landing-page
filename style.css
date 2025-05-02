@@ -345,12 +345,11 @@ header {
   display: block;
   text-decoration: none;
   width: auto;
-  bottom: 14%; /* slightly below social-bar */
+  bottom: 14%;
 }
 
 .cta-button img {
-  width: 100%;
-  max-width: 220px;
+  width: 220px;
   height: auto;
   display: block;
   object-fit: contain;
@@ -370,7 +369,7 @@ header {
     bottom: 10%;
   }
   .cta-button img {
-    max-width: 110px;
+    width: 110px;
   }
 }
 
