@@ -8,7 +8,7 @@ const urlsToCache = [
   '/assets/hawawshi.webp',
   '/assets/kofta.webp',
   '/assets/tawouk.webp',
-  '/assets/ig_black.svg',
+  '/assets/ig_black.webp',
   '/assets/loc.webp',
   '/assets/eighties.webp'
 ];

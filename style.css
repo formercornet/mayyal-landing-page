@@ -467,6 +467,12 @@ header {
   object-fit: contain;
 }
 
+/* Make location icon slightly bigger */
+.social-icon:last-child img {
+  width: 28px;
+  height: 28px;
+}
+
 @media (max-width: 768px) {
   .social-bar {
     bottom: 25%;
