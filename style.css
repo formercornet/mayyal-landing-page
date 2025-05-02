@@ -338,7 +338,7 @@ header {
 /* More subtle CTA Button */
 .cta-button {
   position: absolute;
-  bottom: 10%;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -363,7 +363,7 @@ header {
 
 @media (max-width: 768px) {
   .cta-button {
-    bottom: 12%;
+    bottom: 32px;
   }
   .cta-button img {
     max-width: 160px;
