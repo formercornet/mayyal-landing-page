@@ -338,7 +338,7 @@ header {
 /* More subtle CTA Button */
 .cta-button {
   position: absolute;
-  bottom: 60px;
+  bottom: 40px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 3;
@@ -363,16 +363,21 @@ header {
 
 @media (max-width: 768px) {
   .cta-button {
-    bottom: 50px;
+    bottom: 32px;
   }
   .cta-button img {
     max-width: 160px;
   }
+  
+  .social-bar {
+    bottom: 25%;
+    gap: 20px;
+  }
 }
 
 @media (min-width: 769px) and (max-width: 1200px) {
-  .cta-button {
-    bottom: 60px;
+  .social-bar {
+    bottom: 15%; /* Move social bar up slightly on laptops */
   }
 }
 
