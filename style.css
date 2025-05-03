@@ -346,7 +346,6 @@ header {
   display: block;
   text-decoration: none;
   width: auto;
-  margin-bottom: 24px; /* Ensures gap between button and social bar */
 }
 
 .cta-button img {
@@ -365,7 +364,6 @@ header {
 @media (max-width: 768px) {
   .cta-button {
     bottom: 32px;
-    margin-bottom: 20px;
   }
   .cta-button img {
     max-width: 160px;
@@ -374,8 +372,7 @@ header {
 
 @media (min-width: 769px) and (max-width: 1200px) {
   .cta-button {
-    bottom: 64px;
-    margin-bottom: 32px; /* Extra gap for laptops */
+    bottom: 80px; /* Increased bottom value for more gap on laptops */
   }
 }
 
